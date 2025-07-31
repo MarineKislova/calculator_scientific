@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calculator Scientific</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <div class="calculator">
+          <div class="calculator__container">
+            <div class="calculator__header">
+              <div class="calculator__mode">RAD</div>
+            </div>
+
+            <input type="text" value="0" data-display="display" id="display" class="calculator__display">
+
+
+            <div class="calculator__tabs">
+              <button class="tab active" id="basic-tab">Basic</button>
+              <button class="tab" id="scientific-tab">Scientific</button>
+            </div>
+
+            <!-- Базовые кнопки -->
+            <div class="calculator__buttons basic-buttons">
+              <button class="btn">MC</button>
+              <button class="btn">MR</button>
+              <button class="btn">M+</button>
+              <button class="btn">M−</button>
+
+              <button class="btn">C</button>
+              <button class="btn">AC</button>
+              <button class="btn operator">+</button>
+              <button class="btn operator">×</button>
+
+              <button class="btn">7</button>
+              <button class="btn">8</button>
+              <button class="btn">9</button>
+              <button class="btn operator">−</button>
+
+              <button class="btn">4</button>
+              <button class="btn">5</button>
+              <button class="btn">6</button>
+              <button class="btn operator">÷</button>
+
+              <button class="btn">1</button>
+              <button class="btn">2</button>
+              <button class="btn">3</button>
+              <button class="btn equal">=</button>
+
+              <button class="btn zero">0</button>
+              <button class="btn">.</button>
+            </div>
+
+            <!-- Научные кнопки -->
+            <div class="calculator__buttons scientific-buttons hidden">
+              <button class="btn">sin</button>
+              <button class="btn">cos</button>
+              <button class="btn">tan</button>
+              <button class="btn operator">xʸ</button>
+
+              <button class="btn">√x</button>
+              <button class="btn">x²</button>
+              <button class="btn">x³</button>
+              <button class="btn">1/x</button>
+
+              <button class="btn">log</button>
+              <button class="btn">ln</button>
+              <button class="btn">n!</button>
+              <button class="btn operator">%</button>
+
+              <button class="btn">π</button>
+              <button class="btn">e</button>
+              <button class="btn">C</button>
+              <button class="btn equal">=</button>
+
+              <button class="btn">7</button>
+              <button class="btn">8</button>
+              <button class="btn">9</button>
+              <button class="btn operator">÷</button>
+
+              <button class="btn">4</button>
+              <button class="btn">5</button>
+              <button class="btn">6</button>
+              <button class="btn operator">×</button>
+
+              <button class="btn">1</button>
+              <button class="btn">2</button>
+              <button class="btn">3</button>
+              <button class="btn operator">−</button>
+
+              <button class="btn zero">0</button>
+              <button class="btn">.</button>
+              <button class="btn operator">+</button>
+            </div>
+
+            <div class="calculator__note">
+              <small
+                >🔸 Use your keyboard: Numbers, operators, Enter (=), Escape
+                (C), Backspace</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
