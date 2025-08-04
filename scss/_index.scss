@@ -1,2 +1,20 @@
 @use "./fonts";
 @forward "defaultnullstyle";
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #cdcfcc;
+}
+
+.content {
+  flex: 1 1 auto;
+}
+
+[class*="__container"] {
+  max-width: 300px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #57575a, #49494c);
+}

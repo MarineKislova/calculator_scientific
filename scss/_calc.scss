@@ -1,0 +1,243 @@
+.calculator {
+  margin-top: 20px;
+
+  &__container {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: end;
+    justify-content: center;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  &__mode {
+    width: 65px;
+    padding: 5px;
+    color: #c77f72;
+    text-align: center;
+    border-radius: 50px;
+    background: linear-gradient(15deg, #6a6969, #545454);
+    box-shadow: 0px 3px 0px #303031, 0px -1px 0px #89898f;
+    border: 1px solid #4e4e4f;
+  }
+
+  /* The switch - the box around the slider */
+  &__switch {
+    // font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 4.5em;
+    height: 1.2em;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__displays {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+    
+  }
+  &__display-area {
+    display: flex;
+    justify-self: center;
+    font-size: 1.25em;
+    max-width: 300px;
+    border: none;
+    height: 10px;
+    overflow: hidden;
+    // border-radius: 5px;
+    background: #656566;
+    // box-shadow: inset 3px 3px 5px #2a2a2a, inset -3px -3px 5px #2a2a2a;
+    color: rgba(240, 127, 115, 0.51);
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    // opacity: 0.3;
+  }
+
+  &__display {
+    padding: 8px 12px;
+    border: none;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: flex;
+    justify-self: center;
+    font-size: 1.25em;
+    line-height: 1.2;
+    max-width: 300px;
+    height: 100px;
+    background: #cbd7e9;
+    box-shadow: inset 3px 3px 5px #2a2a2a, inset -3px -3px 5px #2a2a2a;
+    color: #0d1112;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    gap: 10px;
+    padding-top: 20px;
+  }
+
+  &__buttons {
+  }
+
+  &__note {
+    font-family: Montserrat;
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #978f8f;
+    text-align: center;
+    padding: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+}
+.tab {
+  padding: 5px;
+  width: 150px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #a78c7f, #c7a697);
+  box-shadow: 0px 3px 0px #303031, 0px -1px 0px #89898f;
+  font-weight: bolder;
+  font-size: 1.25em;
+}
+.active {
+  background: linear-gradient(
+    145deg,
+    #fbf4dd,
+    rgb(226, 196, 182),
+    rgb(244, 189, 159)
+  );
+  color: #3f3838;
+  font-weight: bolder;
+}
+.basic-buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-template-areas:
+    "MC MR Mplus Mminus"
+    "AC AC backspace backspace"
+    ". percent degree division"
+    "seven eigth nine multi"
+    "four five six minus"
+    "one two three plus"
+    "zero dot equal equal";
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+.btn {
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #b6c4d8, #78797a);
+  box-shadow: 1px 3px 0px #303031, -1px -1px 0px #464647;
+  font-weight: bold;
+}
+.operator {
+  font-weight: 800;
+}
+.equal {
+}
+.zero {
+}
+.scientific-buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-template-areas:
+    "MC MR Mplus Mminus"
+    "AC AC backspace backspace"
+    "sin cos tan cot"
+    "x² x³ xʸ ten-power"
+    "√x ∛x ∜x reciprocal"
+    "log ln factorial percent"
+    "π e eˣ division"
+    "seven eigth nine multi"
+    "four five six minus"
+    "one two three plus"
+    "zero dot equal equal";
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+.hidden-tab {
+  display: none;
+}
+.active-tab {
+  display: grid;
+}
+
+/* From Uiverse.io by alexruix */
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(15deg, #8d8d8d, #545454);
+  box-shadow: inset 0px 3px 0px #303031, inset 0px -1px 0px #89898f;
+  border: 1px solid #4e4e4f;
+  transition: 0.4s;
+  border-radius: 32px;
+  outline: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: attr(data-mode);
+  font-size: 0.8em;
+  height: 2em;
+  width: 3em;
+  text-align: center;
+  align-content: center;
+  border-radius: 100px;
+  outline: 2px solid #b0b0b0;
+  left: -1px;
+  bottom: -5px;
+  background-color: #fff;
+  transition: transform 0.25s ease-in-out 0s;
+  background: linear-gradient(15deg, #6a6969, #545454);
+  box-shadow: 0px 3px 0px #303031, 0px -2px 0px #a2a2b5;
+  outline: 1px solid #27272b;
+  color: #fda191;
+}
+
+input:checked + .slider {
+  background-color: #b0b0b0;
+}
+
+input:checked + .slider::before .slider-icon {
+  opacity: 1;
+  right: 70%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.5em);
+  outline: 1px solid #dadaf4;
+  background: linear-gradient(15deg, #fda191, #c27365);
+  color: #545454;
+}

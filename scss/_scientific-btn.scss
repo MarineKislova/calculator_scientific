@@ -1,0 +1,135 @@
+// scientific buttons
+[data-btn="MC"] {
+  grid-area: MC;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn="MR"] {
+  grid-area: MR;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn="M+"] {
+  grid-area: Mplus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn="M-"] {
+  grid-area: Mminus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn="allclear"] {
+  grid-area: AC;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+
+[data-btn="backspace"] {
+  grid-area: backspace;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+[data-btn="sin"] {
+  grid-area: sin;
+  background: #fdc58d;
+}
+
+[data-btn="cos"] {
+  grid-area: cos;
+  background: #fdc58d;
+}
+
+[data-btn="tan"] {
+  grid-area: tan;
+  background: #fdc58d;
+}
+
+[data-btn="cot"] {
+  grid-area: cot;
+  background: #fdc58d;
+}
+
+[data-btn="x²"] {
+  grid-area: x²;
+  background: #fdc58d;
+}
+
+[data-btn="x³"] {
+  grid-area: x³;
+  background: #fdc58d;
+}
+
+[data-btn="xʸ"] {
+  grid-area: xʸ;
+  background: #fdc58d;
+}
+
+[data-btn="10ʸ"] {
+  grid-area: ten-power;
+  background: #fdc58d;
+}
+
+[data-btn="√x"] {
+  grid-area: √x;
+  background: #fdc58d;
+}
+
+[data-btn="∛x"] {
+  grid-area: ∛x;
+  background: #fdc58d;
+}
+
+[data-btn="∜x"] {
+  grid-area: ∜x;
+  background: #fdc58d;
+}
+
+[data-btn="1/x"] {
+  grid-area: reciprocal;
+  background: #fdc58d;
+}
+
+[data-btn="log"] {
+  grid-area: log;
+  background: #fdc58d;
+}
+
+[data-btn="ln"] {
+  grid-area: ln;
+  background: #fdc58d;
+}
+
+[data-btn="!"] {
+  grid-area: factorial;
+  background: #fdc58d;
+}
+
+[data-btn="%"] {
+  grid-area: percent;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[data-btn="π"] {
+  grid-area: π;
+  background: #fdc58d;
+}
+
+[data-btn="e"] {
+  grid-area: e;
+  background: #fdc58d;
+}
+
+[data-btn="eˣ"] {
+  grid-area: eˣ;
+  background: #fdc58d;
+}
+
+[data-btn="/"] {
+  grid-area: division;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}

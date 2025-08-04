@@ -1,0 +1,117 @@
+// basic buttons
+ [value="MC"] {
+  grid-area: MC;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[value="MR"] {
+  grid-area: MR;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[value="M+"] {
+  grid-area: Mplus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[value="M-"] {
+  grid-area: Mminus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[value="allclear"] {
+  grid-area: AC;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+
+[value="backscape"] {
+  grid-area: backspace;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+
+[value="%"] {
+  grid-area: percent;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="**"] {
+  grid-area: degree;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="/"] {
+  grid-area: division;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="7"] {
+  grid-area: seven;
+}
+
+[value="8"] {
+  grid-area: eigth;
+}
+
+[value="9"] {
+  grid-area: nine;
+}
+
+[value="*"] {
+  grid-area: multi;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="4"] {
+  grid-area: four;
+}
+
+[value="5"] {
+  grid-area: five;
+}
+
+[value="6"] {
+  grid-area: six;
+}
+
+[value="-"] {
+  grid-area: minus;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="1"] {
+  grid-area: one;
+}
+
+[value="2"] {
+  grid-area: two;
+}
+
+[value="3"] {
+  grid-area: three;
+}
+
+[value="+"] {
+  grid-area: plus;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[value="0"] {
+  grid-area: zero;
+}
+
+[value="."] {
+  grid-area: dot;
+  // background: #e6d6a9;
+}
+
+[value="="] {
+  grid-area: equal;
+  width: 100%;
+  background: linear-gradient(145deg, #0bf769, #00C34E);
+}

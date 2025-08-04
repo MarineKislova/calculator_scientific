@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap");
@@ -118,6 +119,7 @@ h6 {
 
 .calculator {
   margin-top: 20px;
+  /* The switch - the box around the slider */
 }
 .calculator__container {
   padding: 10px;
@@ -127,9 +129,17 @@ h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: right;
   font-size: 1.2em;
   font-weight: bold;
@@ -146,22 +156,65 @@ h6 {
           box-shadow: 0px 3px 0px #303031, 0px -1px 0px #89898f;
   border: 1px solid #4e4e4f;
 }
-.calculator__display {
+.calculator__switch {
+  position: relative;
+  display: inline-block;
+  width: 4.5em;
+  height: 1.2em;
+}
+.calculator__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.calculator__displays {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0;
+  margin-top: 10px;
+}
+.calculator__display-area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   justify-self: center;
-  margin-top: 10px;
   font-size: 1.25em;
   max-width: 300px;
-  height: 75px;
-  border-radius: 5px;
+  border: none;
+  height: 10px;
+  overflow: hidden;
+  background: #656566;
+  color: rgba(240, 127, 115, 0.51);
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+.calculator__display {
+  padding: 8px 12px;
+  border: none;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  font-size: 1.25em;
+  line-height: 1.2;
+  max-width: 300px;
+  height: 100px;
   background: #cbd7e9;
   -webkit-box-shadow: inset 3px 3px 5px #2a2a2a, inset -3px -3px 5px #2a2a2a;
           box-shadow: inset 3px 3px 5px #2a2a2a, inset -3px -3px 5px #2a2a2a;
   color: #0d1112;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
 .calculator__tabs {
@@ -199,6 +252,12 @@ h6 {
   font-size: 1.25em;
 }
 
+.active {
+  background: linear-gradient(145deg, #fbf4dd, rgb(226, 196, 182), rgb(244, 189, 159));
+  color: #3f3838;
+  font-weight: bolder;
+}
+
 .basic-buttons {
   margin-top: 20px;
   display: grid;
@@ -220,8 +279,89 @@ h6 {
   font-weight: bold;
 }
 
-.hidden {
+.operator {
+  font-weight: 800;
+}
+
+.scientific-buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-template-areas: "MC MR Mplus Mminus" "AC AC backspace backspace" "sin cos tan cot" "x² x³ xʸ ten-power" "√x ∛x ∜x reciprocal" "log ln factorial percent" "π e eˣ division" "seven eigth nine multi" "four five six minus" "one two three plus" "zero dot equal equal";
+  grid-gap: 10px;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hidden-tab {
   display: none;
+}
+
+.active-tab {
+  display: grid;
+}
+
+/* From Uiverse.io by alexruix */
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(15deg, #8d8d8d, #545454);
+  -webkit-box-shadow: inset 0px 3px 0px #303031, inset 0px -1px 0px #89898f;
+          box-shadow: inset 0px 3px 0px #303031, inset 0px -1px 0px #89898f;
+  border: 1px solid #4e4e4f;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 32px;
+  outline: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: attr(data-mode);
+  font-size: 0.8em;
+  height: 2em;
+  width: 3em;
+  text-align: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border-radius: 100px;
+  outline: 2px solid #b0b0b0;
+  left: -1px;
+  bottom: -5px;
+  background-color: #fff;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+  transition: -webkit-transform 0.25s ease-in-out 0s;
+  transition: transform 0.25s ease-in-out 0s;
+  transition: transform 0.25s ease-in-out 0s, -webkit-transform 0.25s ease-in-out 0s;
+  background: linear-gradient(15deg, #6a6969, #545454);
+  -webkit-box-shadow: 0px 3px 0px #303031, 0px -2px 0px #a2a2b5;
+          box-shadow: 0px 3px 0px #303031, 0px -2px 0px #a2a2b5;
+  outline: 1px solid #27272b;
+  color: #fda191;
+}
+
+input:checked + .slider {
+  background-color: #b0b0b0;
+}
+
+input:checked + .slider::before .slider-icon {
+  opacity: 1;
+  right: 70%;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(2.5em);
+      -ms-transform: translateX(2.5em);
+          transform: translateX(2.5em);
+  outline: 1px solid #dadaf4;
+  background: linear-gradient(15deg, #fda191, #c27365);
+  color: #545454;
 }
 
 [value=MC] {
@@ -251,26 +391,28 @@ h6 {
 [value=allclear] {
   grid-area: AC;
   width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
 }
 
 [value=backscape] {
   grid-area: backspace;
   width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
 }
 
 [value="%"] {
   grid-area: percent;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="**"] {
   grid-area: degree;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="/"] {
   grid-area: division;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="7"] {
@@ -287,7 +429,7 @@ h6 {
 
 [value="*"] {
   grid-area: multi;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="4"] {
@@ -304,7 +446,7 @@ h6 {
 
 [value="-"] {
   grid-area: minus;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="1"] {
@@ -321,7 +463,7 @@ h6 {
 
 [value="+"] {
   grid-area: plus;
-  background: linear-gradient(145deg, #ffffc4, #e1e1a5);
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }
 
 [value="0"] {
@@ -330,11 +472,146 @@ h6 {
 
 [value="."] {
   grid-area: dot;
-  background-color: #e6d6a9;
 }
 
 [value="="] {
   grid-area: equal;
   width: 100%;
-  background: linear-gradient(145deg, #db705e, #b95f4f);
+  background: linear-gradient(145deg, #0bf769, #00C34E);
+}
+
+[data-btn=MC] {
+  grid-area: MC;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn=MR] {
+  grid-area: MR;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn="M+"] {
+  grid-area: Mplus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn=M-] {
+  grid-area: Mminus;
+  width: 50px;
+  background: linear-gradient(145deg, #b6c4d8, #ba9b8d);
+}
+
+[data-btn=allclear] {
+  grid-area: AC;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+
+[data-btn=backspace] {
+  grid-area: backspace;
+  width: 100%;
+  background: linear-gradient(5deg, #db705e, #fd917e);
+}
+
+[data-btn=sin] {
+  grid-area: sin;
+  background: #fdc58d;
+}
+
+[data-btn=cos] {
+  grid-area: cos;
+  background: #fdc58d;
+}
+
+[data-btn=tan] {
+  grid-area: tan;
+  background: #fdc58d;
+}
+
+[data-btn=cot] {
+  grid-area: cot;
+  background: #fdc58d;
+}
+
+[data-btn=x²] {
+  grid-area: x²;
+  background: #fdc58d;
+}
+
+[data-btn=x³] {
+  grid-area: x³;
+  background: #fdc58d;
+}
+
+[data-btn=xʸ] {
+  grid-area: xʸ;
+  background: #fdc58d;
+}
+
+[data-btn="10ʸ"] {
+  grid-area: ten-power;
+  background: #fdc58d;
+}
+
+[data-btn=√x] {
+  grid-area: √x;
+  background: #fdc58d;
+}
+
+[data-btn=∛x] {
+  grid-area: ∛x;
+  background: #fdc58d;
+}
+
+[data-btn=∜x] {
+  grid-area: ∜x;
+  background: #fdc58d;
+}
+
+[data-btn="1/x"] {
+  grid-area: reciprocal;
+  background: #fdc58d;
+}
+
+[data-btn=log] {
+  grid-area: log;
+  background: #fdc58d;
+}
+
+[data-btn=ln] {
+  grid-area: ln;
+  background: #fdc58d;
+}
+
+[data-btn="!"] {
+  grid-area: factorial;
+  background: #fdc58d;
+}
+
+[data-btn="%"] {
+  grid-area: percent;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
+}
+
+[data-btn=π] {
+  grid-area: π;
+  background: #fdc58d;
+}
+
+[data-btn=e] {
+  grid-area: e;
+  background: #fdc58d;
+}
+
+[data-btn=eˣ] {
+  grid-area: eˣ;
+  background: #fdc58d;
+}
+
+[data-btn="/"] {
+  grid-area: division;
+  background: linear-gradient(145deg, #9da7fa, #818CF8);
 }/*# sourceMappingURL=style.css.map */
